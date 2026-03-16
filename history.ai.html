@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HANLIN HISTORY - 備課AI助教</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --warm-ivory: #fffaf0;    /* 溫暖象牙白 */
+            --ancient-gold: #c5a059;  /* 古典金 */
+            --royal-brown: #5d4037;   /* 皇家焦糖褐 */
+            --soft-gold: rgba(197, 160, 89, 0.2);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: var(--warm-ivory);
+            font-family: 'Noto Serif TC', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 使用純 CSS 繪製輕微點狀背景 */
+            background-image: radial-gradient(var(--soft-gold) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        /* 標題區 [cite: 593] */
+        .header {
+            margin-bottom: 70px;
+        }
+
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            letter-spacing: 10px;
+            color: var(--ancient-gold);
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .main-title {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: var(--royal-brown);
+            margin: 0;
+            letter-spacing: 5px;
+        }
+
+        /* 按鈕清單  */
+        .nav-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+        }
+
+        /* 雙圖示按鈕 */
+        .dual-btn {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            height: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: var(--royal-brown);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .dual-btn.disabled {
+            cursor: default;
+            opacity: 0.8;
+        }
+
+        /* 按鈕主體 */
+        .btn-body {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            background: white;
+            border: 2px solid var(--ancient-gold);
+            border-radius: 60px;
+            z-index: 1;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+        }
+
+        /* 圖示容器 */
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            background: var(--warm-ivory);
+            border: 2px solid var(--ancient-gold);
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: all 0.4s ease;
+        }
+
+        /* 桂冠纏繞葉 */
+        .laurel-wrap {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0;
+            pointer-events: none;
+            z-index: 3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .laurel-wrap span {
+            font-size: 2.2rem;
+            opacity: 0.6;
+            transition: all 0.4s ease;
+        }
+
+        /* 按鈕文字區域 */
+        .btn-text {
+            flex-grow: 1;
+            z-index: 2;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.2;
+        }
+
+        /* 敬請期待的小字 */
+        .coming-soon {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        /* 懸停動態 */
+        .dual-btn:not(.disabled):hover .btn-body {
+            background-color: var(--ancient-gold);
+            transform: translateX(-50%) scale(1.02);
+            box-shadow: 0 12px 30px rgba(197, 160, 89, 0.3);
+        }
+
+        .dual-btn:not(.disabled):hover {
+            color: white;
+        }
+
+        .dual-btn:not(.disabled):hover .icon-box {
+            background: white;
+            transform: rotate(10deg);
+        }
+
+        .dual-btn:not(.disabled):hover .laurel-wrap span {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        /* 響應式佈局 */
+        @media (max-width: 600px) {
+            .dual-btn { width: 320px; height: 80px; }
+            .icon-box { width: 55px; height: 55px; font-size: 1.5rem; }
+            .btn-text { font-size: 1.3rem; letter-spacing: 3px; }
+            .main-title { font-size: 2.5rem; }
+            .laurel-wrap { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <span class="subtitle">HANLIN HISTORY</span>
+        <h1 class="main-title">備課AI助教</h1>
+    </div>
+
+    <div class="nav-list">
+        <a href="https://app.edcafe.ai/chatbots/698c317a3159d0c298e8121d" target="_blank" class="dual-btn">
+            <div class="btn-body"></div>
+            <div class="icon-box">📖</div> 
+            <span class="btn-text">歷史三</span>
+            <div class="icon-box">🤖</div> 
+            <div class="laurel-wrap">
+                <span style="margin-left: -15px;">🌿</span>
+                <span style="margin-right: -15px; transform: scaleX(-1);">🌿</span>
+            </div>
+        </a>
+
+        <a href="https://app.edcafe.ai/chatbots/68db7232e64720160d373581" target="_blank" class="dual-btn">
+            <div class="btn-body"></div>
+            <div class="icon-box">📖</div>
+            <span class="btn-text">歷史二</span>
+            <div class="icon-box">🤖</div>
+            <div class="laurel-wrap">
+                <span style="margin-left: -15px;">🌿</span>
+                <span style="margin-right: -15px; transform: scaleX(-1);">🌿</span>
+            </div>
+        </a>
+
+        <a href="javascript:void(0);" class="dual-btn disabled">
+            <div class="btn-body"></div>
+            <div class="icon-box">📖</div>
+            <span class="btn-text">
+                歷史一
+                <span class="coming-soon">（敬請期待）</span>
+            </span>
+            <div class="icon-box">🤖</div>
+            <div class="laurel-wrap">
+                <span style="margin-left: -15px;">🌿</span>
+                <span style="margin-right: -15px; transform: scaleX(-1);">🌿</span>
+            </div>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
