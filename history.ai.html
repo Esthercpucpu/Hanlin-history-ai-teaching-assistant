@@ -22,19 +22,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* 使用純 CSS 繪製輕微點狀背景 */
             background-image: radial-gradient(var(--soft-gold) 1px, transparent 1px);
             background-size: 30px 30px;
         }
 
         .container {
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
             width: 100%;
             max-width: 800px;
         }
 
-        /* 標題區 [cite: 593] */
+        /* 標題區 [cite: 593, 697] */
         .header {
             margin-bottom: 70px;
         }
@@ -56,7 +55,7 @@
             letter-spacing: 5px;
         }
 
-        /* 按鈕清單  */
+        /* 按鈕清單 [cite: 5, 577, 693] */
         .nav-list {
             display: flex;
             flex-direction: column;
@@ -64,7 +63,6 @@
             gap: 50px;
         }
 
-        /* 雙圖示按鈕 */
         .dual-btn {
             position: relative;
             width: 100%;
@@ -84,7 +82,6 @@
             opacity: 0.8;
         }
 
-        /* 按鈕主體 */
         .btn-body {
             position: absolute;
             left: 50%;
@@ -99,7 +96,6 @@
             transition: all 0.4s ease;
         }
 
-        /* 圖示容器 */
         .icon-box {
             width: 70px;
             height: 70px;
@@ -115,7 +111,6 @@
             transition: all 0.4s ease;
         }
 
-        /* 桂冠纏繞葉 */
         .laurel-wrap {
             position: absolute;
             width: 100%;
@@ -134,7 +129,6 @@
             transition: all 0.4s ease;
         }
 
-        /* 按鈕文字區域 */
         .btn-text {
             flex-grow: 1;
             z-index: 2;
@@ -147,7 +141,6 @@
             line-height: 1.2;
         }
 
-        /* 敬請期待的小字 */
         .coming-soon {
             font-size: 0.85rem;
             letter-spacing: 1px;
@@ -176,13 +169,22 @@
             transform: scale(1.2);
         }
 
-        /* 響應式佈局 */
+        /* 底部版權聲明區樣式  */
+        .footer-notice {
+            margin-top: 60px;
+            font-size: 0.75rem;
+            color: var(--royal-brown);
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+
         @media (max-width: 600px) {
             .dual-btn { width: 320px; height: 80px; }
             .icon-box { width: 55px; height: 55px; font-size: 1.5rem; }
-            .btn-text { font-size: 1.3rem; letter-spacing: 3px; }
-            .main-title { font-size: 2.5rem; }
+            .btn-text { font-size: 1.3rem; }
+            .main-title { font-size: 2.2rem; }
             .laurel-wrap { display: none; }
+            .footer-notice { font-size: 0.7rem; margin-top: 40px; }
         }
     </style>
 </head>
@@ -230,6 +232,10 @@
                 <span style="margin-right: -15px; transform: scaleX(-1);">🌿</span>
             </div>
         </a>
+    </div>
+
+    <div class="footer-notice">
+        本平台所提供之教材內容，其著作權屬翰林出版事業股份有限公司所有。
     </div>
 </div>
 
